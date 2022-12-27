@@ -5,9 +5,26 @@ namespace CsharpConsoleApp
     {
         static void Main(string[] args)
         {
-            // Area
-            const double PI = 3.14;
-            PI = 100; // error cost constant can't change
+            for(int i = 1; i< 11; i++)
+            {
+                Console.WriteLine($"{i} - Hello!");
+            }
+
+
+            int j = 1;
+            while(j< 11)
+            {
+                Console.WriteLine($"{j} - Hello!");
+                j++;
+            }
+
+            j = 0;
+            do
+            {
+                Console.WriteLine($"{j} - Hello!");
+                j++;
+            } while (j < 11);
+
         }
     }
 }

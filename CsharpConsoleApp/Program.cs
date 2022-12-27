@@ -5,15 +5,9 @@ namespace CsharpConsoleApp
     {
         static void Main(string[] args)
         {
-            // implicit
-            int num = 123456;
-            long newNum = num;
-            Console.WriteLine(newNum);
-
-            // explicit
-            double x = 12345.5;
-            int a = (int)x;
-            Console.WriteLine(a);
+            // Area
+            const double PI = 3.14;
+            PI = 100; // error cost constant can't change
         }
     }
 }

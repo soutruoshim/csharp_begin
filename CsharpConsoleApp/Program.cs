@@ -5,18 +5,15 @@ namespace CsharpConsoleApp
     {
         static void Main(string[] args)
         {
-            string message = "Hello World";
-            int intVar = 10;
-            float floatVar = 10.2f;
-            char charVar = 'E';
-            bool boolVar = false;
+            // implicit
+            int num = 123456;
+            long newNum = num;
+            Console.WriteLine(newNum);
 
-            Console.WriteLine(message);
-            Console.WriteLine(intVar);
-            Console.WriteLine(floatVar);
-            Console.WriteLine(charVar);
-            Console.WriteLine(boolVar);
-            Console.ReadKey();
+            // explicit
+            double x = 12345.5;
+            int a = (int)x;
+            Console.WriteLine(a);
         }
     }
 }

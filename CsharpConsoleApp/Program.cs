@@ -5,26 +5,14 @@ namespace CsharpConsoleApp
     {
         static void Main(string[] args)
         {
-            for(int i = 1; i< 11; i++)
-            {
-                Console.WriteLine($"{i} - Hello!");
-            }
+            Person person = new Person() { Age = 15, FullName="Join Son"};
+            Console.WriteLine(person.GetDetail());
 
+            Professor processor = new Professor() { Age = 45, FullName = "Lixa", Subject = "Math" };
+            Console.WriteLine(processor.GetDetail());
 
-            int j = 1;
-            while(j< 11)
-            {
-                Console.WriteLine($"{j} - Hello!");
-                j++;
-            }
-
-            j = 0;
-            do
-            {
-                Console.WriteLine($"{j} - Hello!");
-                j++;
-            } while (j < 11);
-
+            Student student = new Student() { Age = 20, FullName = "Eyjo", Grade = 2 };
+            Console.WriteLine(student.GetDetail());
         }
     }
 }

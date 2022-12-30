@@ -1,18 +1,39 @@
 using System; // System is name space
+using System.Collections;
+
 namespace CsharpConsoleApp
 {
+    public delegate void StringDelegate(string text);
     class Program
     {
         static void Main(string[] args)
         {
-            Person person = new Person() { Age = 15, FullName="Join Son"};
-            Console.WriteLine(person.GetDetail());
+            StringDelegate stringDelegate = ToUpperCase;
+            WriteOutput("Hello World", stringDelegate);
 
-            Professor processor = new Professor() { Age = 45, FullName = "Lixa", Subject = "Math" };
-            Console.WriteLine(processor.GetDetail());
-
-            Student student = new Student() { Age = 20, FullName = "Eyjo", Grade = 2 };
-            Console.WriteLine(student.GetDetail());
+            //Events
+            Strings myString =
         }
+        static void ToUpperCase(string text) => Console.WriteLine(text.ToUpper());
+        static void ToLowerCase(string text) => Console.WriteLine(text.ToLower());
+        static void TextChange(string text) => Console.WriteLine($"You Enter Text: {text}");
+        static void WriteOutput(string text, StringDelegate stringDelegate)
+        {
+            Console.WriteLine($"Before: {text}");
+            stringDelegate(text);
+        }
+    } 
+    public class Strings
+    {
+        private String stringValue;
+        public event StringDelegate stringEvent;
+
+        public string Value {
+            set {
+                this.stringValue = value;
+                this.stringEvent(this.stringValue);
+            }
+        }
+
     }
 }

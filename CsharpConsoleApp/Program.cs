@@ -8,32 +8,35 @@ namespace CsharpConsoleApp
     {
         static void Main(string[] args)
         {
-            StringDelegate stringDelegate = ToUpperCase;
-            WriteOutput("Hello World", stringDelegate);
+            // Event
+            Strings strings = new Strings();
+            strings.stringEvent += TextChange;
+            string str = "";
+            do
+            {
+                if (!str.Equals("exit")) strings.Value = str;
 
-            //Events
-            Strings myString =
+            } while (!str.Equals("exit"));
+
+
+          
         }
-        static void ToUpperCase(string text) => Console.WriteLine(text.ToUpper());
-        static void ToLowerCase(string text) => Console.WriteLine(text.ToLower());
-        static void TextChange(string text) => Console.WriteLine($"You Enter Text: {text}");
-        static void WriteOutput(string text, StringDelegate stringDelegate)
-        {
-            Console.WriteLine($"Before: {text}");
-            stringDelegate(text);
-        }
+        public static void TextChange(string text) => Console.WriteLine(text);
+
+    
     } 
     public class Strings
     {
-        private String stringValue;
+        private string stringValue;
         public event StringDelegate stringEvent;
-
-        public string Value {
-            set {
+        public string Value
+        {
+            set
+            {
                 this.stringValue = value;
                 this.stringEvent(this.stringValue);
             }
         }
-
     }
+    
 }
